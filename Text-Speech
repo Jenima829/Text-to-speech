@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-Speech</title>
+    <link rel="stylesheet" href="addstyle.css">
+</head>
+<body>
+    <div id="container">
+    <table>
+        <tr>
+            
+                <td><h1 style="align-items: center;">Text to Speech</h1></td>
+     </tr>
+     <tr><td><textarea  id="textToSpeak" placeholder="Enter your here...."></textarea></td></tr>
+     <tr><td> <button onclick="speakText()">Speak</button></td></tr>
+       
+    </table>
+    </div>
+
+    <script>
+       var speech = new SpeechSynthesisUtterance();
+
+       function speakText(){
+        var textToSpeak = document.getElementById('textToSpeak').value;
+        if ( textToSpeak.trim()!==""){
+            speech.text = textToSpeak;
+            speech.rate = 1;
+            speech.volume=10;
+            speech.pitch =1;
+            window.speechSynthesis.speak(speech);
+
+        }else{
+            alert("Please enter some text");
+        }
+    }
+    </script>
+</body>
+</html>
+```````
+
+
+button{
+    background-color: rgb(17, 5, 238);
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    margin-left: 55px;
+}
+#container{
+  
+    background-color: aliceblue;
+    position: absolute;
+    top: 150px;
+    width:320px;
+    left: 480px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid whitesmoke;
+    border-radius: 5px;
+    align-items: center;
+}
+#container textarea{
+    height: 100px;
+    width: 200px;
+    padding: 10px;
+}
+button{
+    align-items: center;
+    margin-top: 5px;
+}
+#container h1{
+    padding-left: 5px;
+}
+
+
